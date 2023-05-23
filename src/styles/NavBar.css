@@ -1,0 +1,27 @@
+.navBarContainer {
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.navBarContainerMobile {
+    width: 100%;
+    height: 25%;
+    background-size: 100%;
+    background-image: url('../assets/images/bg-sidebar-mobile.svg');
+    position: absolute;
+    top: 0;
+}
+
+.navBarContainerDesktop {
+    min-width: 200px;
+    height: 100%;
+    background-image: url('../assets/images/bg-sidebar-desktop.svg');
+    background-size: cover;
+
+}
+
+.active .navCircle {
+    background-color: var(--lightBlue);
+    color: var(--marineBlue);
+}

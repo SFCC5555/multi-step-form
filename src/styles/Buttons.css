@@ -1,0 +1,17 @@
+.mainButton {
+    background-color: var(--marineBlue);
+}
+
+.mainButton:hover {
+
+    background-color: var(--purplishBlue);
+
+}
+
+.backButton {
+    color: var(--coolGray);
+}
+
+.backButton:hover {
+    color: var(--purplishBlue);
+}
