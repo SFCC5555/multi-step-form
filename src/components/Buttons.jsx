@@ -31,7 +31,7 @@ function handleBackButton() {
 
 
   return (
-    <div className='absolute -bottom-2/5  w-full flex items-center justify-between sm:relative sm:bottom-0'>
+    <div className='absolute -bottom-1/4 translate-y-20  w-full flex items-center justify-between sm:relative sm:bottom-0'>
       <button onClick={handleBackButton} className={`${location.pathname==='/YOUR-INFO'&&'invisible'} backButton p-2 font-medium`} >Go Back</button>
       <button onClick={handleMainButton} className='mainButton p-2 rounded-md text-white' >{location.pathname==='/SUMMARY'?'Confirm':'Next Step'}</button>
     </div>
