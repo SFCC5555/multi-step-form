@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext  } from 'react'
+import { AppContext } from '../../context/AppContext';
 
 const YourInfo = () => {
 
-  const [nameValue,setNameValue] = useState('');
-  const [emailValue,setEmailValue] = useState('');
-  const [phoneValue,setPhoneValue] = useState('');
+  const {nameValue,setNameValue,emailValue,setEmailValue,phoneValue,setPhoneValue} = useContext(AppContext);
 
   function handleChangeName(e) {
     if (e.target.value.length<=25 && /^[a-z ]*$/i.test(e.target.value)) {
@@ -35,12 +34,12 @@ const YourInfo = () => {
 
   return (
     <section className='flex flex-col gap-4 h-full w-full sm:justify-between'>
-      <div className='flex flex-col gap-3 sm:gap-10' >
+      <div className='flex flex-col gap-3 sm:gap-10 mb-6' >
         <h1 className='text-3xl font-bold' style={{color:'var(--marineBlue)'}} >Personal info</h1>
         <p className='font-medium' style={{color:'var(--coolGray)'}}>Please provide your name, email address, and phone number.</p>
       </div>
 
-      <div className='flex flex-col justify-between sm:gap-4 sm:justify-center h-full'>
+      <div className='flex flex-col justify-end gap-4 sm:gap-4 sm:justify-center h-full'>
         <div className='flex flex-col'>
           <label className='text-sm font-medium' style={{color:'var(--marineBlue)'}} htmlFor='name'>Name</label>
           <input value={nameValue.split(' ').map(w=>w[0]&&w[0].toUpperCase()+w.slice(1).toLowerCase()).slice(0,2).join(' ')} onChange={handleChangeName} placeholder='e.g Levi Ackerman' className='placeholder:font-medium border-2 h-10 px-2 rounded-md' id='name' type='text' />

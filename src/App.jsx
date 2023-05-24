@@ -9,6 +9,7 @@ import { SelectPlan } from './components/Pages/SelectPlan';
 import { AddOns } from './components/Pages/AddOns';
 import { Summary } from './components/Pages/Summary';
 import { NotFound } from './components/Pages/NotFound';
+import { AppContextProvider } from './context/AppContext';
 
 
 function App() {
@@ -16,19 +17,23 @@ function App() {
   return (
     <BrowserRouter>
       <NavBarMobile />
-      <div className='bg-white p-4 w-full mx-3 rounded-md h-2/3 sm:h-5/6 sm:mx-20 md:mx-28 sm:max-w-2xl gap-5 flex z-10 relative'>
+      <div className='bg-white px-5 py-8 w-full mx-3 rounded-md  sm:h-5/6 sm:mx-20 md:mx-28 sm:max-w-2xl gap-5 flex z-10 relative'>
         <NavBarDesktop />
         <NavBar />
-        <div className='flex flex-col items-center justify-between sm:py-5 sm:px-2 md:px-12  w-full' >
-          <Routes>
-            <Route path='/' element={<Navigate to='/YOUR-INFO'/>} />
-            <Route path='/YOUR-INFO' element={<YourInfo />}/>
-            <Route path='/SELECT-PLAN' element={<SelectPlan />}/>
-            <Route path='/ADD-ONS' element={<AddOns />}/>
-            <Route path='/SUMMARY' element={<Summary />}/>
-            <Route path='*' element={<NotFound />}/>
-          </Routes>
-          <Buttons />
+        <div className='flex flex-col items-center gap-20 sm:py-5 sm:px-2 md:px-12  w-full' >
+          <AppContextProvider>
+
+            <Routes>
+              <Route path='/' element={<Navigate to='/YOUR-INFO'/>} />
+              <Route path='/YOUR-INFO' element={<YourInfo />}/>
+              <Route path='/SELECT-PLAN' element={<SelectPlan />}/>
+              <Route path='/ADD-ONS' element={<AddOns />}/>
+              <Route path='/SUMMARY' element={<Summary />}/>
+              <Route path='*' element={<NotFound />}/>
+            </Routes>
+            <Buttons />
+            
+          </AppContextProvider>
         </div>
       </div>
     </BrowserRouter>
