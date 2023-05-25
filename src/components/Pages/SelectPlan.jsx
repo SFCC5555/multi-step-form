@@ -12,27 +12,27 @@ const SelectPlan = () => {
       <div className='w-full px-3 py-1 border-2 rounded-md'>
         <span/>
         <div className='flex flex-col'>
-          <h3 className='font-medium' >Arcade</h3>
-          <p className='text-sm' >$9/mo</p>
-          <p className='text-xs'>2 months free</p>
+          <h3 className='font-medium' style={{color:'var(--marineBlue)'}} >Arcade</h3>
+          <p className='text-sm' style={{color:'var(--coolGray)'}} >$9/mo</p>
+          <p className='text-xs' style={{color:'var(--marineBlue)'}}>2 months free</p>
         </div>
       </div>
 
       <div className='w-full px-3 py-1 border-2 rounded-md'>
         <span />
         <div className='flex flex-col'>
-          <h3>Advanced</h3>
-          <p>$12/mo</p>
-          <p>2 months free</p>
+          <h3 className='font-medium' style={{color:'var(--marineBlue)'}} >Advanced</h3>
+          <p className='text-sm' style={{color:'var(--coolGray)'}} >$12/mo</p>
+          <p className='text-xs' style={{color:'var(--marineBlue)'}}>2 months free</p>
         </div>
       </div>
 
       <div className='w-full px-3 py-1 border-2 rounded-md'>
         <span />
         <div className='flex flex-col'>
-          <h3>Pro</h3>
-          <p>$15/mo</p>
-          <p>2 months free</p>
+          <h3 className='font-medium' style={{color:'var(--marineBlue)'}} >Pro</h3>
+          <p className='text-sm' style={{color:'var(--coolGray)'}} >$15/mo</p>
+          <p className='text-xs' style={{color:'var(--marineBlue)'}} >2 months free</p>
         </div>
       </div>
     </div>
