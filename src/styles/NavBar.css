@@ -22,7 +22,8 @@
 }
 
 .navBar {
-    top:20px;
+    top:12.5%;
+    translate: 0px -50%;
 }
 
 .active .navCircle {
