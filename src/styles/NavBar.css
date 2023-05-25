@@ -22,11 +22,27 @@
 }
 
 .navBar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 20px;
     top:12.5%;
-    translate: 0px -50%;
+    left: 50%;
+    translate: -50% -50%;
 }
 
 .active .navCircle {
     background-color: var(--lightBlue);
     color: var(--marineBlue);
+}
+
+@media screen and (min-width: 640px) {
+    .navBar {
+        flex-direction: column;
+        top:40px;
+        left: 40px;
+        translate: 0px 0px;
+        gap: 40px;
+    }
+
 }

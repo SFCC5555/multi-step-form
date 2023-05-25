@@ -1,3 +1,40 @@
 .mainContainer {
     min-height: 400px;
 }
+
+span {
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.arcade {
+    background-image: url('./assets/images/icon-arcade.svg');
+}
+
+.advanced {
+    background-image: url('./assets/images/icon-advanced.svg');
+}
+
+.pro {
+    background-image: url('./assets/images/icon-pro.svg');
+}
+
+.switch{
+    background-color: var(--marineBlue);
+}
+
+.switch:hover {
+    background-color: var(--purplishBlue);
+}
+
+@media screen and (min-width: 640px) {
+    span {
+        width: 35px;
+        height: 35px;
+    }
+}
