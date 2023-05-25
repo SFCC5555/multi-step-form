@@ -21,6 +21,10 @@
 
 }
 
+.navBar {
+    top:20px;
+}
+
 .active .navCircle {
     background-color: var(--lightBlue);
     color: var(--marineBlue);
