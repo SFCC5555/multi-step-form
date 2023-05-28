@@ -32,6 +32,13 @@ span {
     background-color: var(--purplishBlue);
 }
 
+input[type="checkbox"] {
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+}
+
+
 @media screen and (min-width: 640px) {
     span {
         width: 35px;
