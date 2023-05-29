@@ -10,6 +10,7 @@ span {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+
 }
 
 .arcade {
@@ -22,6 +23,22 @@ span {
 
 .pro {
     background-image: url('./assets/images/icon-pro.svg');
+}
+
+.thankIcon {
+    background-image: url('./assets/images//icon-thank-you.svg');
+    width: 75px;
+    height: 75px;
+    animation-name: thankIconAnimation;
+    animation-duration: 400ms;
+}
+
+@keyframes thankIconAnimation {
+
+    0%{width: 25px;height: 25px;opacity: 0%;}
+    50%{width:85px;height: 85px;}
+    100%{width:75px;height:75px;opacity: 100%;}
+    
 }
 
 .switch{

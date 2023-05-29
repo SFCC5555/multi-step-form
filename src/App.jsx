@@ -16,12 +16,13 @@ function App() {
 
   return (
     <BrowserRouter>
+      <AppContextProvider>
       <NavBarMobile />
       <div className='mainContainer bg-white px-5 py-8 sm:py-5 w-full mx-5 rounded-md  sm:h-5/6 sm:mx-20 sm:max-w-3xl gap-5 flex z-10 sm:relative'>
         <NavBarDesktop />
         <NavBar />
         <div className='flex flex-col items-center justify-between sm:py-5 sm:px-2 md:px-12 w-full' >
-          <AppContextProvider>
+
 
             <Routes>
               <Route path='/' element={<Navigate to='/YOUR-INFO'/>} />
@@ -32,9 +33,9 @@ function App() {
               <Route path='*' element={<NotFound />}/>
             </Routes>
             <Buttons />
-          </AppContextProvider>
         </div>
       </div>
+      </AppContextProvider>
     </BrowserRouter>
   )
 }

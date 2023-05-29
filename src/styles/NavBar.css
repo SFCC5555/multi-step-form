@@ -31,7 +31,11 @@
     translate: -50% -50%;
 }
 
-.active .navCircle {
+.navCircle {
+    color: var(--white);
+}
+
+.activeNavCircle {
     background-color: var(--lightBlue);
     color: var(--marineBlue);
 }
@@ -42,7 +46,7 @@
         top:40px;
         left: 40px;
         translate: 0px 0px;
-        gap: 40px;
+        gap: 32px;
     }
 
 }

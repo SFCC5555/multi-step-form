@@ -3,17 +3,31 @@ import { AppContext } from '../../context/AppContext';
 
 const YourInfo = () => {
 
-  const {nameValue,setNameValue,emailValue,setEmailValue,phoneValue,setPhoneValue} = useContext(AppContext);
+  const {nameValue,setNameValue,emailValue,setEmailValue,phoneValue,setPhoneValue,setLocation,nameError,setNameError,emailError,setEmailError,phoneError,setPhoneError,nameError2,setNameError2,emailError2,setEmailError2,phoneError2,setPhoneError2} = useContext(AppContext);
+
+  setLocation(location.pathname);
 
   function handleChangeName(e) {
-    if (e.target.value.length<=25 && /^[a-z ]*$/i.test(e.target.value)) {
+    if (e.target.value.length<=30 && /^[a-z ]*$/i.test(e.target.value)) {
       setNameValue(e.target.value);
+      setNameError(false);
+
+      if (e.target.value.length===0 || e.target.value.split(' ').length===2) {
+        setNameError2(false);
+      }
+
     } 
   }
 
   function handleChangeEmail(e) {
-    if (e.target.value.length<=25 && /^[a-zA-Z0-9_@\.]*$/.test(e.target.value)) {
+    if (e.target.value.length<=30 && /^[a-zA-Z0-9_@\.]*$/.test(e.target.value)) {
       setEmailValue(e.target.value.toLowerCase());
+      setEmailError(false);
+
+      if (e.target.value.length===0 || /^[a-zA-Z0-9]+_?[a-zA-Z0-9]*([.]?[a-zA-Z0-9]+)*_?[a-zA-Z0-9]*@[a-zA-Z]+(\.[a-zA-Z]{2,3})$/.test(e.target.value)) {
+        setEmailError2(false);
+      }
+
     } 
   }
 
@@ -25,7 +39,12 @@ const YourInfo = () => {
       } else {
         setPhoneValue(e.target.value);
       }  
-      console.log(e.target)
+      setPhoneError(false);
+
+      if (e.target.value.length===0 || e.target.value.length>=7 ) {
+        setPhoneError2(false);
+
+      }
     } 
 
   }
@@ -41,16 +60,28 @@ const YourInfo = () => {
 
       <div className='flex flex-col justify-end gap-4 sm:gap-4 sm:justify-center h-full'>
         <div className='flex flex-col'>
-          <label className='text-sm font-medium' style={{color:'var(--marineBlue)'}} htmlFor='name'>Name</label>
-          <input value={nameValue.split(' ').map(w=>w[0]&&w[0].toUpperCase()+w.slice(1).toLowerCase()).slice(0,2).join(' ')} onChange={handleChangeName} placeholder='e.g Levi Ackerman' className='placeholder:font-medium border-2 h-10 px-2 rounded-md' id='name' type='text' />
+          <div className='flex items-center justify-between' >
+            <label className='text-sm font-medium' style={{color:'var(--marineBlue)'}} htmlFor='name'>Name</label>
+            {nameError&&<div className='text-xs font-semibold' style={{color:'var(--strawberryRed)'}} >This field is required</div>}
+            {nameError2&&<div className='text-xs font-semibold' style={{color:'var(--strawberryRed)'}} >Full name is required</div>}
+          </div>
+          <input value={nameValue.split(' ').map(w=>w[0]&&w[0].toUpperCase()+w.slice(1).toLowerCase()).slice(0,2).join(' ')} onChange={handleChangeName} placeholder='e.g Levi Ackerman' className={`placeholder:font-medium border-2 h-10 px-2 rounded-md ${(nameError || nameError2)&&'border-red-600'} hover:border-purple-800 outline-none focus:border-purple-800`} id='name' type='text' />
         </div>
         <div className='flex flex-col'>
-          <label className='text-sm font-medium' style={{color:'var(--marineBlue)'}} htmlFor='email'>Email Address</label>
-          <input value={emailValue} onChange={handleChangeEmail} placeholder='e.g captainlevi@paradis.com' className='placeholder:font-medium border-2 h-10 px-2 rounded-md' id='email' type='email' />
+          <div className='flex items-center justify-between' >
+            <label className='text-sm font-medium' style={{color:'var(--marineBlue)'}} htmlFor='email'>Email Address</label>
+            {emailError&&<div className='text-xs font-semibold' style={{color:'var(--strawberryRed)'}} >This field is required</div>}
+            {emailError2&&<div className='text-xs font-semibold' style={{color:'var(--strawberryRed)'}} >Invalid email</div>}
+          </div>
+          <input value={emailValue} onChange={handleChangeEmail} placeholder='e.g captainlevi@paradis.com' className={`placeholder:font-medium border-2 h-10 px-2 rounded-md ${(emailError || emailError2)&&'border-red-600'} hover:border-purple-800 outline-none focus:border-purple-800`} id='email' type='email' />
         </div>
         <div className='flex flex-col'>
-          <label className='text-sm font-medium' style={{color:'var(--marineBlue)'}} htmlFor='phone'>Phone Number</label>
-          <input value={phoneValue} onChange={handleChangePhone} placeholder='e.g +1 234 567 890' className='placeholder:font-medium border-2 h-10 px-2 rounded-md' id='phone' type='tel' />
+          <div className='flex items-center justify-between' >
+            <label className='text-sm font-medium' style={{color:'var(--marineBlue)'}} htmlFor='phone'>Phone Number</label>
+            {phoneError&&<div className='text-xs font-semibold' style={{color:'var(--strawberryRed)'}} >This field is required</div>}
+            {phoneError2&&<div className='text-xs font-semibold' style={{color:'var(--strawberryRed)'}} >At least 6 digits</div>}
+          </div>
+          <input value={phoneValue} onChange={handleChangePhone} placeholder='e.g +1 234 567 890' className={`placeholder:font-medium border-2 h-10 px-2 rounded-md ${(phoneError || phoneError2)&&'border-red-600'}  hover:border-purple-800 outline-none focus:border-purple-800`} id='phone' type='tel' />
         </div>
       </div>
     </section>

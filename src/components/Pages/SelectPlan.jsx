@@ -3,7 +3,8 @@ import { AppContext } from '../../context/AppContext';
 
 const SelectPlan = () => {
 
-  const {period,plan} = useContext(AppContext);
+  const {period,plan,setLocation} = useContext(AppContext);
+  setLocation(location.pathname);
 
   return (
     <section className='flex flex-col gap-4 h-full w-full sm:justify-start sm:gap-10'>
@@ -17,7 +18,7 @@ const SelectPlan = () => {
         <span className='arcade'/>
         <div className='flex flex-col gap-1'>
           <h3 className='font-medium' style={{color:'var(--marineBlue)'}} >Arcade</h3>
-          <p className='text-sm' style={{color:'var(--coolGray)'}} >$9/mo</p>
+          <p className='text-sm' style={{color:'var(--coolGray)'}} >$9{period.period==='Monthly'?'/mo':'0/yr'}</p>
           <p className={`text-xs ${period.period==='Monthly'&&'invisible'}`} style={{color:'var(--purplishBlue)'}}>2 months free</p>
         </div>
       </div>
@@ -26,7 +27,7 @@ const SelectPlan = () => {
         <span className='advanced'/>
         <div className='flex flex-col gap-1'>
           <h3 className='font-medium' style={{color:'var(--marineBlue)'}} >Advanced</h3>
-          <p className='text-sm' style={{color:'var(--coolGray)'}} >$12/mo</p>
+          <p className='text-sm' style={{color:'var(--coolGray)'}} >$12{period.period==='Monthly'?'/mo':'0/yr'}</p>
           <p className={`text-xs ${period.period==='Monthly'&&'invisible'}`} style={{color:'var(--purplishBlue)'}}>2 months free</p>
         </div>
       </div>
@@ -35,7 +36,7 @@ const SelectPlan = () => {
         <span className='pro' />
         <div className='flex flex-col gap-1'>
           <h3 className='font-medium' style={{color:'var(--marineBlue)'}} >Pro</h3>
-          <p className='text-sm' style={{color:'var(--coolGray)'}} >$15/mo</p>
+          <p className='text-sm' style={{color:'var(--coolGray)'}} >$15{period.period==='Monthly'?'/mo':'0/yr'}</p>
           <p className={`text-xs ${period.period==='Monthly'&&'invisible'}`} style={{color:'var(--purplishBlue)'}}>2 months free</p>
         </div>
       </div>
